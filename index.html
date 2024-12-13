@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Make Quizzes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container container-custom">
+      <ul class="nav nav-pills mb-4" id="mainTabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="pill" href="#tao-cau-hoi"
+            >Tạo Câu Hỏi</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="pill" href="#tra-loi-cau-hoi"
+            >Trả Lời Câu Hỏi</a
+          >
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <!-- Tab Tạo Câu Hỏi -->
+        <div class="tab-pane fade show active" id="tao-cau-hoi">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <div class="card-header">Thao tác chung</div>
+
+                <div class="card-body">
+                  <input
+                    type="file"
+                    id="excelFile"
+                    class="form-control mb-3"
+                    accept=".xlsx, .xls"
+                  />
+                  <button
+                    onclick="QuestionManager.importExcel()"
+                    class="btn btn-primary btn-custom"
+                  >
+                    Nhập Dữ Liệu
+                  </button>
+                  <button
+                    onclick="QuestionManager.exportExcel()"
+                    class="btn btn-warning btn-custom"
+                  >
+                    Xuất Dữ Liệu
+                  </button>
+
+                  <button
+                    onclick="QuestionManager.deleteAllQuestions()"
+                    class="btn btn-danger"
+                    id="btn btn-delete-all"
+                  >
+                    Xóa Tất Cả
+                  </button>
+                </div>
+              </div>
+              <hr />
+              <!-- Phần Xuất câu hỏi ra Excel -->
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <div class="card-header">Thêm Câu Hỏi Thủ Công</div>
+                <div class="card-body">
+                  <form id="questionForm">
+                    <textarea
+                      id="questionInput"
+                      class="form-control mb-2"
+                      placeholder="Nhập câu hỏi"
+                      required
+                      maxlength="1000"
+                    ></textarea>
+                    <div class="row">
+                      <div class="col-6 mb-2">
+                        <input
+                          type="text"
+                          id="option1"
+                          class="form-control"
+                          placeholder="Đáp án A"
+                          required
+                          maxlength="1000"
+                        />
+                      </div>
+                      <div class="col-6 mb-2">
+                        <input
+                          type="text"
+                          id="option2"
+                          class="form-control"
+                          placeholder="Đáp án B"
+                          required
+                          maxlength="1000"
+                        />
+                      </div>
+                      <div class="col-6 mb-2">
+                        <input
+                          type="text"
+                          id="option3"
+                          class="form-control"
+                          placeholder="Đáp án C"
+                          required
+                          maxlength="1000"
+                        />
+                      </div>
+                      <div class="col-6 mb-2">
+                        <input
+                          type="text"
+                          id="option4"
+                          class="form-control"
+                          placeholder="Đáp án D"
+                          required
+                          maxlength="1000"
+                        />
+                      </div>
+                    </div>
+                    <select
+                      id="correctAnswer"
+                      class="form-select mb-2"
+                      required
+                    >
+                      <option value="">Chọn đáp án đúng</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                    </select>
+                    <div
+                      class="modal-validation-error"
+                      id="formError"
+                      style="display: none"
+                    >
+                      Vui lòng điền đầy đủ thông tin!
+                    </div>
+                    <button id="addQuestionButton" class="btn btn-primary">
+                      Thêm câu hỏi
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Danh Sách Câu Hỏi</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped" id="questionList">
+                  <thead>
+                    <tr>
+                      <th>STT</th>
+                      <th>Câu Hỏi</th>
+                      <th>A</th>
+                      <th>B</th>
+                      <th>C</th>
+                      <th>D</th>
+                      <th>Đáp Án Đúng</th>
+                      <th>Thao Tác</th>
+                    </tr>
+                  </thead>
+                  <tbody id="questionTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Trả Lời Câu Hỏi -->
+        <div class="tab-pane fade" id="tra-loi-cau-hoi">
+          <div class="card">
+            <div class="card-header">Bài Trắc Nghiệm</div>
+            <div class="card-body">
+              <div id="quizContainer">
+                <!-- Phần hiển thị câu hỏi -->
+                <div id="quizSection" style="display: none">
+                  <h3 id="quizQuestion"></h3>
+                  <div id="quizOptions"></div>
+                  <div class="mt-3 prev-next-btn">
+                    <button
+                      id="prevQuestionButton"
+                      class="btn btn-primary ms-2"
+                      onclick="QuizHandler.previousQuestion()"
+                      disabled
+                    >
+                      Câu trước
+                    </button>
+                    <button
+                      id="nextQuestionButton"
+                      class="btn btn-primary ms-2"
+                      onclick="QuizHandler.nextQuestion()"
+                    >
+                      Câu tiếp theo
+                    </button>
+                  </div>
+                  <p class="mt-3">
+                    Đã trả lời <span id="answeredCount">0</span>/<span
+                      id="totalQuestions"
+                    ></span>
+                    câu.
+                  </p>
+                  <p>Thời gian làm bài: <span id="timer">00:00</span></p>
+                </div>
+
+                <!-- Nút bắt đầu làm bài -->
+                <button
+                  id="startQuizButton"
+                  class="btn btn-success"
+                  onclick="QuizHandler.startQuiz()"
+                >
+                  Bắt đầu làm bài
+                </button>
+              </div>
+
+              <!-- Modal hỏi nộp bài -->
+              <div
+                class="modal fade"
+                id="submitQuizModal"
+                tabindex="-1"
+                aria-labelledby="submitQuizModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="submitQuizModalLabel">
+                        Nộp bài
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      Bạn đã hoàn thành bài kiểm tra. Bạn có chắc chắn muốn nộp
+                      bài không?
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Hủy
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="QuizHandler.submitQuiz()"
+                        data-bs-dismiss="modal"
+                      >
+                        Nộp bài
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kết quả -->
+              <div
+                id="quizResult"
+                class="alert mt-3"
+                role="alert"
+                style="display: none"
+              ></div>
+
+              <!-- Hỏi làm lại -->
+              <div id="retrySection" style="display: none">
+                <p>Bạn có muốn làm lại không?</p>
+                <button
+                  class="btn btn-success"
+                  onclick="QuizHandler.restartQuiz()"
+                >
+                  Làm lại
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script src="js/question-manager.js"></script>
+    <script src="js/quiz-handler.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

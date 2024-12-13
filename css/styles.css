@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+
+.container-custom {
+  margin-top: 20px;
+}
+
+/* Đảm bảo bảng có thể cuộn khi quá nhiều câu hỏi */
+.table-responsive {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Định dạng cho các ô trong bảng */
+table th, table td {
+  white-space: normal;  
+  word-wrap: break-word;  
+  text-align: left; 
+  vertical-align: middle;
+}
+
+/* Đảm bảo các ô câu hỏi và đáp án có thể xuống dòng */
+td {
+  max-width: 250px; 
+  word-wrap: break-word;
+}
+
+/* Định dạng cho các textarea và input để tránh kéo dài */
+textarea, input[type="text"], select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Thêm khoảng cách giữa các phần tử trong form */
+form .form-control,
+form .form-select {
+  margin-bottom: 10px;
+}
+
+/* Cải thiện hiển thị của các nút */
+button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Đảm bảo các thông báo lỗi có thể nổi bật */
+.modal-validation-error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Cải thiện giao diện cho các phần điều hướng (tabs) */
+.nav-pills .nav-link {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Thiết lập cho các card */
+.card {
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  font-weight: bold;
+  background-color: #f7f7f7;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Tùy chỉnh chiều cao của các button khi được sử dụng trong quiz */
+#prevQuestionButton, #nextQuestionButton {
+  min-width: 120px;
+}
+
+/* Đảm bảo các phần tử trong quiz có thể dễ dàng nhìn thấy */
+#quizSection {
+  margin-bottom: 20px;
+}
+
+#quizOptions button {
+  margin-top: 10px;
+  width: 100%;
+}
+
+#quizResult {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: green;
+}
+#prevQuestionButton, #nextQuestionButton{
+  width: 50%;
+} 
+.prev-next-btn{
+  display: flex;
+}
+
+
