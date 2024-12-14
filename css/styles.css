@@ -3,7 +3,7 @@ body {
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
-  }
+}
 
 .container-custom {
   margin-top: 20px;
@@ -84,6 +84,12 @@ button {
 /* Tùy chỉnh chiều cao của các button khi được sử dụng trong quiz */
 #prevQuestionButton, #nextQuestionButton {
   min-width: 120px;
+}
+/* Căn giữa các giá trị trong danh sách câu hỏi */
+#questionList th, 
+#questionList td {
+    text-align: center;
+    vertical-align: middle; /* Căn giữa theo cả chiều ngang và dọc */
 }
 
 /* Đảm bảo các phần tử trong quiz có thể dễ dàng nhìn thấy */

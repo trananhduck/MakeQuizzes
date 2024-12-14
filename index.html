@@ -12,6 +12,7 @@
   </head>
   <body>
     <div class="container container-custom">
+      <!--2 tab tạo câu hỏi và trả lời câu hỏi-->
       <ul class="nav nav-pills mb-4" id="mainTabs">
         <li class="nav-item">
           <a class="nav-link active" data-bs-toggle="pill" href="#tao-cau-hoi"
@@ -29,17 +30,20 @@
         <!-- Tab Tạo Câu Hỏi -->
         <div class="tab-pane fade show active" id="tao-cau-hoi">
           <div class="row">
+            <!-- Các thao tác chung-->
             <div class="col-md-6">
               <div class="card mb-4">
                 <div class="card-header">Thao tác chung</div>
 
                 <div class="card-body">
+                  <!-- Ô nhập file excel -->
                   <input
                     type="file"
                     id="excelFile"
                     class="form-control mb-3"
                     accept=".xlsx, .xls"
                   />
+                  <!-- Các nút bấm -->
                   <button
                     onclick="QuestionManager.importExcel()"
                     class="btn btn-primary btn-custom"
@@ -63,8 +67,8 @@
                 </div>
               </div>
               <hr />
-              <!-- Phần Xuất câu hỏi ra Excel -->
             </div>
+            <!-- Nhập Câu Hỏi Thủ Công -->
             <div class="col-md-6">
               <div class="card mb-4">
                 <div class="card-header">Nhập Câu Hỏi Thủ Công</div>
@@ -78,6 +82,7 @@
                       maxlength="1000"
                     ></textarea>
                     <div class="row">
+                      <!-- Các lựa chọn -->
                       <div class="col-6 mb-2">
                         <input
                           type="text"
@@ -130,6 +135,7 @@
                       <option value="C">C</option>
                       <option value="D">D</option>
                     </select>
+                    <!--Nhắc nhở người dùng nhập đày đủ các gía trị nếu người dùng nhập thiếu-->
                     <div
                       class="modal-validation-error"
                       id="formError"
@@ -179,6 +185,7 @@
                 <div id="quizSection" style="display: none">
                   <h3 id="quizQuestion"></h3>
                   <div id="quizOptions"></div>
+                  <!-- 2 nút điều hướng -->
                   <div class="mt-3 prev-next-btn">
                     <button
                       id="prevQuestionButton"
@@ -196,6 +203,7 @@
                       Câu tiếp theo
                     </button>
                   </div>
+                  <!-- Hiển thị số câu đã trả lời và tgian làm bài-->
                   <p class="mt-3">
                     Đã trả lời <span id="answeredCount">0</span>/<span
                       id="totalQuestions"
