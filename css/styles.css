@@ -110,3 +110,31 @@ button {
 }
 
 
+/* Toast thành công */
+.toast-success {
+  background-color: #28a745; /* Màu xanh lá cây */
+  color: #ffffff; /* Màu chữ trắng */
+}
+
+/* Toast thất bại */
+.toast-failure {
+  background-color: #dc3545; /* Màu đỏ */
+  color: #ffffff; /* Màu chữ trắng */
+}
+
+/* Thiết kế chung cho Toast */
+.toast {
+  border-radius: 8px; /* Bo góc */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+  padding: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 200px;
+}
+
+/* Thêm hiệu ứng khi hiển thị */
+.toast.show {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
