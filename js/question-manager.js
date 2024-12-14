@@ -171,7 +171,7 @@ const QuestionManager = {
                     headers[5] !== "Đáp án D" ||
                     headers[6] !== "Đáp án đúng"
                 ) {
-                    this.showToast("File không đúng định dạng tiêu đề yêu cầu!", false);
+                    this.showToast("File không đúng định dạng!", false);
                     return;
                 }
 
@@ -189,7 +189,7 @@ const QuestionManager = {
 
                     // 1. Kiểm tra cột STT
                     if (typeof stt !== "number" || stt !== i) {
-                        this.showToast(`Lỗi: STT ở dòng ${i + 1} không hợp lệ (phải là số và tăng dần từ 1)!`, false);
+                        this.showToast(`Lỗi: STT ở dòng ${i + 1} không hợp lệ!`, false);
                         return;
                     }
 
@@ -263,8 +263,8 @@ const QuestionManager = {
 
         // Cập nhật nội dung và kiểu toast
         toastMessage.textContent = message;
-        toast.classList.remove("toast-success", "toast-failure"); // Xóa lớp cũ
-        toast.classList.add(isSuccess ? "toast-success" : "toast-failure"); // Thêm lớp phù hợp
+        toast.classList.remove("toast-success", "toast-failure");
+        toast.classList.add(isSuccess ? "toast-success" : "toast-failure");
 
         // Hiển thị Toast
         const bsToast = new bootstrap.Toast(toast);
