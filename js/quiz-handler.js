@@ -2,13 +2,13 @@ const QuizHandler = {
     currentQuestionIndex: 0,
     score: 0,
     timer: null,
-    elapsedTime: 0, // Thời gian đã trôi qua (tính bằng giây)
+    elapsedTime: 0, 
     answeredQuestions: new Set(),
 
     startQuiz: function () {
         this.currentQuestionIndex = 0;
         this.score = 0;
-        this.elapsedTime = 0; // Reset lại thời gian đã trôi qua
+        this.elapsedTime = 0; 
 
         this.answeredQuestions.clear();
         QuestionManager.questions.forEach((q) => (q.selectedAnswer = null));
@@ -24,7 +24,7 @@ const QuizHandler = {
         this.renderQuestion();
         this.updateAnsweredCount();
 
-        this.startTimer(); // Bắt đầu đếm thời gian
+        this.startTimer(); 
     },
 
     startTimer: function () {

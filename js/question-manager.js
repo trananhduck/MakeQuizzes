@@ -85,9 +85,9 @@ const QuestionManager = {
     deleteAllQuestions: function () {
         const confirmation = confirm("Bạn có chắc chắn muốn xóa tất cả câu hỏi?");
         if (confirmation) {
-            this.questions = []; // Đặt danh sách câu hỏi về rỗng
-            this.saveQuestions(); // Lưu danh sách trống vào localStorage
-            this.renderQuestionList(); // Cập nhật giao diện
+            this.questions = [];
+            this.saveQuestions();
+            this.renderQuestionList();
             this.showToast("Đã xóa toàn bộ câu hỏi!");
         }
     },
@@ -136,8 +136,8 @@ const QuestionManager = {
     deleteQuestion: function (index) {
         if (confirm("Bạn có chắc chắn muốn xóa câu hỏi này?")) {
             this.questions.splice(index, 1);
-            this.saveQuestions(); // Lưu lại sau khi xóa
-            this.renderQuestionList(); // Cập nhật lại bảng
+            this.saveQuestions();
+            this.renderQuestionList();
             this.showToast("Xóa câu hỏi thành công!");
         }
     },
