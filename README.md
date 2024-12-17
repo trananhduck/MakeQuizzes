@@ -71,13 +71,23 @@ Nhấn vào nút "Xuất Danh Sách Câu Hỏi", danh sách câu hỏi sẽ đư
 - Nếu muốn nộp bài, nhấn nút "Hoàn thành" (ở câu hỏi cuối cùng) và xác nhận nộp bài.
 - Chọn "Làm lại" nếu muốn trả lời lại danh sách câu hỏi.
 
-### **3. Cấu trúc thư mục**
-question-management-app/
+### **4. Cấu trúc thư mục**
+```bash
+MakeQuizzes/
 │
-├── index.html          # Giao diện chính
-├── style.css           # File CSS tùy chỉnh
-├── script.js           # Logic ứng dụng
-├── toast.js            # Xử lý thông báo
-└── libs/
-    └── xlsx.full.min.js # Thư viện SheetJS để đọc file Excel
+├── index.html                   # Giao diện chính
+├── css/
+    └── style.css                # File CSS tùy chỉnh
+├── js
+    └── question-manager.js      # Logic các hàm quản lý câu hỏi
+    └── quizz-handeler.js        # Logic các hàm trả lời câu hỏi và kiểm tra đáp án
 
+```
+
+### **5. Ghi chú**
+- Dự án sử dụng localStorage, vì vậy dữ liệu chỉ được lưu trữ trên trình duyệt của người dùng.
+- Hãy đảm bảo file Excel đúng định dạng trước khi import.
+### **6. Tác giả**
+**Trần Anh Đức**
+- GitHub: https://github.com/trananhduck
+- Email: taduc0508@gmail.com
