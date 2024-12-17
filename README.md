@@ -36,15 +36,15 @@ Dự án này là một **web application** đơn giản để **thêm, sửa, x
 - **CSS**: Thiết kế và tạo trải nghiệm thân thiện.
 - **JavaScript**: Xử lý logic ứng dụng và giao tiếp với DOM.
 - **SheetJS (xlsx)**: Thư viện đọc file Excel.
-- **localStorage**: Lưu trữ dữ liệu cục bộ trên trình duyệt.
+- **localStorage**: Lưu trữ dữ liệu cục bộ trên trình duyệt. Link web đã deploy: https://trananhduck.github.io/MakeQuizzes/ 
 ---
 
 ## **Cài đặt và sử dụng**
 
 ### **1. Clone dự án**
 ```bash
-git clone https://github.com/your-username/question-management-app.git
-cd question-management-app
+git clone https://github.com/trananhduck/MakeQuizzes.git
+cd MakeQuizzes
 ```
 
 ### **2. Mở file trong trình duyệt**
