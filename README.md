@@ -2,7 +2,7 @@
 
 ## **Giới thiệu**
 
-Dự án này là một **web application** đơn giản để **thêm, sửa, xóa, quản lý danh sách câu hỏi và trả lời danh sách câu hỏi**. Ứng dụng còn hỗ trợ **import file Excel** chứa danh sách câu hỏi để tiết kiệm thời gian nhập liệu và **export file Excel** .
+Dự án này là một **web application** đơn giản để **thêm, sửa, xóa, quản lý danh sách câu hỏi và trả lời danh sách câu hỏi**. Ứng dụng còn hỗ trợ **import file Excel** chứa danh sách câu hỏi để tiết kiệm thời gian nhập liệu và **export file Excel**. Link web đã deploy: https://trananhduck.github.io/MakeQuizzes/ 
 
 ---
 
@@ -36,7 +36,7 @@ Dự án này là một **web application** đơn giản để **thêm, sửa, x
 - **CSS**: Thiết kế và tạo trải nghiệm thân thiện.
 - **JavaScript**: Xử lý logic ứng dụng và giao tiếp với DOM.
 - **SheetJS (xlsx)**: Thư viện đọc file Excel.
-- **localStorage**: Lưu trữ dữ liệu cục bộ trên trình duyệt. Link web đã deploy: https://trananhduck.github.io/MakeQuizzes/ 
+- **localStorage**: Lưu trữ dữ liệu cục bộ trên trình duyệt. 
 ---
 
 ## **Cài đặt và sử dụng**
