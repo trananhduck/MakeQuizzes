@@ -46,7 +46,7 @@ Dự án này là một **web application** đơn giản để **thêm, sửa, x
 git clone https://github.com/your-username/question-management-app.git
 cd question-management-app
 
-## **2. Mở file trong trình duyệt**
+2. Mở file trong trình duyệt
 Chạy file index.html trên trình duyệt.
 
 ### **3. Các bước sử dụng**
